@@ -1,0 +1,17 @@
+server:
+  port: 1200
+
+spring:
+  datasource:
+    url: ${URL}
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 20
+  sql:
+    init:
+      mode: always
+#   profiles:
+#     active: dev
+
+prefix: "mb:"

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment :: head-section}"></head>
+
+<body>
+    <header data-th-replace="~{fragment :: header-section}"></header>
+
+    <main>
+        <section>
+            <div data-th-replace="~{fragment :: link-section(url='/add-blog',name='Create blog')}"></div>
+
+            <div class="blogs">
+                <article class="blog" data-th-each="blog, loop : ${blogs}">
+                    <h2 data-th-text="${loop.index + 1 > 9 ? loop.index + 1 : '0' + (loop.index + 1)}"></h2>
+                    <h2 data-th-text="${blog.heading}"></h2>
+                    <p data-th-text="${blog.description}"></p>
+                    <a data-th-href="|/blog?id=${blog.id}|">Explore</a>
+                    <div>
+                    <a data-th-href="|/update-blog?id=${blog.id}|">Update</a>
+                    </div>
+                    <div>
+                    <a data-th-href="|/delete-blog?id=${blog.id}|" style="margin-left:1100px;">Delete</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
